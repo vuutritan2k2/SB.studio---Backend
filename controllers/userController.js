@@ -1,7 +1,7 @@
-import UserModel from "../models/userModel";
+import UserModel from "../models/userModel.js";
 import bcryptjs from "bcryptjs"
-import generatedAccessToken from "../utils/generatedAccessToken";
-import generatedRefreshToken from "../utils/generatedRefreshToken";
+import generatedAccessToken from "../utils/generatedAccessToken.js";
+import generatedRefreshToken from "../utils/generatedRefreshToken.js";
 
 // Đăng ký tài khoản
 export async function registerUserController(request, response) {
