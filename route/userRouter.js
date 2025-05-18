@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getUserInfo, loginUserController, logoutUserController, registerUserController } from "../controllers/userController";
+import { getUserInfo, loginUserController, logoutUserController, registerUserController } from "../controllers/userController.js";
 import authJWT from "../middleware/authJWT.js";
 
 
