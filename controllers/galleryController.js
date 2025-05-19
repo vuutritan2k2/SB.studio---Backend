@@ -27,11 +27,31 @@ export async function createGallery(request, response) {
 // Xem tất cả ảnh 
 export async function getGallerry(request, response) {
     try {
-        const galleries  = await GalleryModel.find()
+        const galleries = await GalleryModel.find()
             .populate('userId', 'name avatar')
             .sort({ createdAt: -1 }); // sắp xếp mới nhất lên đầu (tùy chọn)
         response.json({
-            galleries 
+            galleries
+        })
+    } catch (error) {
+        return response.status(500).json({
+            message: error.message || error,
+            error: true,
+            success: false
+        })
+    }
+}
+
+// Xem tất cả ảnh 
+export async function getGallerryById(request, response) {
+    try {
+        const userId = request.params.userId
+
+        const galleries = await GalleryModel.find({ userId })
+            .populate('userId', 'name avatar')
+            .sort({ createdAt: -1 }); // sắp xếp mới nhất lên đầu (tùy chọn)
+        response.json({
+            galleries
         })
     } catch (error) {
         return response.status(500).json({

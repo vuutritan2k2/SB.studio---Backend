@@ -69,7 +69,7 @@ export async function loginUserController(request, response) {
         const user = await UserModel.findOne({ phone })
 
         if (!user) {
-            return response.json({
+            return response.status(400).json({
                 message: 'Tài khoản không tồn tại',
                 error: true,
                 success: false
@@ -89,13 +89,13 @@ export async function loginUserController(request, response) {
         const accesstoken = await generatedAccessToken(user._id, user.role)
         const refreshtoken = await generatedRefreshToken(user._id, user.role)
 
-        const cookiesOption = {
-            httpOnly: true,
-            secure: true,
-            sameSite: 'None'
-        }
+        // const cookiesOption = {
+        //     httpOnly: true,
+        //     secure: true,
+        //     sameSite: 'None'
+        // }
 
-        response.cookie('accesstoken', accesstoken, cookiesOption)
+        // response.cookie('accesstoken', accesstoken, cookiesOption)
 
         return response.status(200).json({
             message: 'Đăng nhập thành công',
