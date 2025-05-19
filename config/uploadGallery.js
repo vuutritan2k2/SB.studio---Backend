@@ -7,6 +7,9 @@ const storage = new CloudinaryStorage({
   params: {
     folder: 'gallery', // tên folder trong Cloudinary
     allowed_formats: ['jpg', 'jpeg', 'png'],
+    transformation: [
+      { width: 1020, height: 1020, crop: 'fill', gravity: 'center' }
+    ]
   },
 });
 
