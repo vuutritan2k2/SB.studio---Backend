@@ -42,7 +42,7 @@ export async function getGallerry(request, response) {
     }
 }
 
-// Xem tất cả ảnh 
+// Xem tất cả ảnh bằng ID
 export async function getGallerryById(request, response) {
     try {
         const userId = request.params.userId

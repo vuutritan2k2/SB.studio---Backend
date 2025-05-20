@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser"; // 🆕 Quan trọng
 import connectDB from "./config/connectdb.js";
 import userRouter from "./route/userRouter.js"; // 🆕 nhớ thêm đuôi .js nếu xài ES module
 import galleryRouter from "./route/galleryRouter.js"; // 🆕 nhớ thêm đuôi .js nếu xài ES module
+import foodRouter from "./route/foodRouter.js";
 
 dotenv.config();
 
@@ -29,6 +30,7 @@ app.get('/', (req, res) => {
 // Routes
 app.use('/api/user', userRouter); // phải khai trước khi listen
 app.use('/api/gallery', galleryRouter); // phải khai trước khi listen
+app.use('/api/food', foodRouter); // phải khai trước khi listen
 
 // Kết nối DB và khởi động server
 const PORT = process.env.PORT || 3000;
